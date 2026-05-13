@@ -19,7 +19,7 @@ namespace CarDealership.Models
         public int HorsePower { get; set; }
         public FuelType FuelType { get; set; }
         public TransmissionType Transmission { get; set; }
-        public int Muileage { get; set; }
+        public int Mileage { get; set; }
         public TechnicalCondition Condition { get; set; }
         public string Features { get; set; }
         public decimal Price { get; set; }
