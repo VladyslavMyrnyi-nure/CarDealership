@@ -3,24 +3,16 @@ using CarDealership.Models;
 
 namespace CarDealership.Services
 {
-    /// <summary>
     /// Логіка форми автомобіля
-    /// </summary>
     public class CarFormService
     {
-        public void LoadComboBoxes(
-            ComboBox cmbFuel,
-            ComboBox cmbTransmission,
-            ComboBox cmbCondition)
+        public void LoadComboBoxes(ComboBox cmbFuel, ComboBox cmbTransmission, ComboBox cmbCondition)
         {
-            cmbFuel.DataSource =
-                Enum.GetValues(typeof(FuelType));
+            cmbFuel.DataSource = Enum.GetValues(typeof(FuelType));
 
-            cmbTransmission.DataSource =
-                Enum.GetValues(typeof(TransmissionType));
+            cmbTransmission.DataSource = Enum.GetValues(typeof(TransmissionType));
 
-            cmbCondition.DataSource =
-                Enum.GetValues(typeof(TechnicalCondition));
+            cmbCondition.DataSource = Enum.GetValues(typeof(TechnicalCondition));
         }
 
         public bool ValidateData(
@@ -54,29 +46,17 @@ namespace CarDealership.Services
             return new Car
             {
                 Brand = brand.Trim(),
-
                 Model = model.Trim(),
-
                 Year = year,
-
                 EngineVolume = engine,
-
                 HorsePower = horsePower,
-
                 Mileage = mileage,
-
                 Country = country.Trim(),
-
                 Features = features.Trim(),
-
                 FuelType = fuel,
-
                 Transmission = transmission,
-
                 Condition = condition,
-
                 IsNew = isNew,
-
                 Price = price
             };
         }

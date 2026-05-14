@@ -7,19 +7,46 @@ namespace CarDealership.Forms
     public partial class CarForm : Form
     {
         public Car NewCar { get; private set; }
+
         private CarFormService carFormService;
 
+        // Конструктор для додавання нового автомобіля
         public CarForm()
         {
             InitializeComponent();
 
-            carFormService =
-                new CarFormService();
+            carFormService = new CarFormService();
 
-            carFormService.LoadComboBoxes(
-                cmbFuel,
-                cmbTransmission,
-                cmbCondition);
+            carFormService.LoadComboBoxes(cmbFuel, cmbTransmission, cmbCondition);
+        }
+
+        // Конструктор для редагування автомобіля
+        public CarForm(Car car)
+        {
+            InitializeComponent();
+
+            carFormService = new CarFormService();
+
+            carFormService.LoadComboBoxes(cmbFuel, cmbTransmission, cmbCondition);
+
+            FillFields(car);
+        }
+
+        private void FillFields(Car car)
+        {
+            txtBrand.Text = car.Brand;
+            txtModel.Text = car.Model;
+            nudYear.Value = car.Year;
+            nudEngine.Value = (decimal)car.EngineVolume;
+            nudHorsePower.Value = car.HorsePower;
+            nudMileage.Value = car.Mileage;
+            txtCountry.Text = car.Country;
+            rtbFeatures.Text = car.Features;
+            cmbFuel.SelectedItem = car.FuelType;
+            cmbTransmission.SelectedItem = car.Transmission;
+            cmbCondition.SelectedItem = car.Condition;
+            chkIsNew.Checked = car.IsNew;
+            nudPrice.Value = car.Price;
         }
 
         private void LoadConditions()
