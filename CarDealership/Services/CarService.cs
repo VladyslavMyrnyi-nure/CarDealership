@@ -17,6 +17,11 @@ namespace CarDealership.Services
             LoadTestData();
         }
 
+        public void AddCar(Car car)
+        {
+            Cars.Add(car);
+        }
+
         /// <summary>
         /// Завантаження тестових даних
         /// </summary>

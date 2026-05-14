@@ -1,4 +1,5 @@
 using CarDealership.Services;
+using CarDealership.Forms;
 
 namespace CarDealership
 {
@@ -21,8 +22,7 @@ namespace CarDealership
         {
             dgvCars.DataSource = null;
 
-            dgvCars.DataSource =
-                carGridService.GetCarsForGrid(carService.Cars);
+            dgvCars.DataSource = carGridService.GetCarsForGrid(carService.Cars);
         }
 
         private void tabCars_Click(object sender, EventArgs e)
@@ -32,7 +32,14 @@ namespace CarDealership
 
         private void btnAddCar_Click(object sender, EventArgs e)
         {
+            CarForm form = new CarForm();
 
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+                carService.AddCar(form.NewCar);
+
+                LoadCars();
+            }
         }
 
         private void btnEditCar_Click(object sender, EventArgs e)
