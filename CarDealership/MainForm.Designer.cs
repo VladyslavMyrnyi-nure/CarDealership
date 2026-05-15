@@ -38,11 +38,20 @@
             txtCarSearch = new TextBox();
             lblSearch = new Label();
             tabBuyers = new TabPage();
+            dgvBuyers = new DataGridView();
+            btnDeleteBuyer = new Button();
+            btnEditBuyer = new Button();
+            btnAddBuyer = new Button();
+            txtBuyerSearch = new TextBox();
+            label2 = new Label();
+            button3 = new Button();
             tabMatching = new TabPage();
             tabRequests = new TabPage();
             tabMain.SuspendLayout();
             tabCars.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvCars).BeginInit();
+            tabBuyers.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvBuyers).BeginInit();
             SuspendLayout();
             // 
             // lblTitle
@@ -61,10 +70,11 @@
             tabMain.Controls.Add(tabBuyers);
             tabMain.Controls.Add(tabMatching);
             tabMain.Controls.Add(tabRequests);
+            tabMain.Font = new Font("Segoe UI", 12F);
             tabMain.Location = new Point(12, 42);
             tabMain.Name = "tabMain";
             tabMain.SelectedIndex = 0;
-            tabMain.Size = new Size(1189, 535);
+            tabMain.Size = new Size(1575, 662);
             tabMain.TabIndex = 5;
             tabMain.Tag = "";
             // 
@@ -76,10 +86,10 @@
             tabCars.Controls.Add(btnAddCar);
             tabCars.Controls.Add(txtCarSearch);
             tabCars.Controls.Add(lblSearch);
-            tabCars.Location = new Point(4, 24);
+            tabCars.Location = new Point(4, 30);
             tabCars.Name = "tabCars";
             tabCars.Padding = new Padding(3);
-            tabCars.Size = new Size(1181, 507);
+            tabCars.Size = new Size(1567, 628);
             tabCars.TabIndex = 0;
             tabCars.Text = "Автомобілі";
             tabCars.UseVisualStyleBackColor = true;
@@ -91,20 +101,21 @@
             dgvCars.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvCars.BackgroundColor = SystemColors.Control;
             dgvCars.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvCars.Location = new Point(6, 48);
+            dgvCars.Location = new Point(6, 44);
             dgvCars.MultiSelect = false;
             dgvCars.Name = "dgvCars";
             dgvCars.ReadOnly = true;
             dgvCars.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvCars.Size = new Size(1169, 417);
+            dgvCars.Size = new Size(1555, 417);
             dgvCars.TabIndex = 5;
             dgvCars.CellContentClick += dgvCars_CellContentClick;
             // 
             // btnDeleteCar
             // 
-            btnDeleteCar.Location = new Point(326, 18);
+            btnDeleteCar.Font = new Font("Segoe UI", 12F);
+            btnDeleteCar.Location = new Point(446, 7);
             btnDeleteCar.Name = "btnDeleteCar";
-            btnDeleteCar.Size = new Size(75, 23);
+            btnDeleteCar.Size = new Size(106, 31);
             btnDeleteCar.TabIndex = 4;
             btnDeleteCar.Text = "Видалити";
             btnDeleteCar.UseVisualStyleBackColor = true;
@@ -112,9 +123,10 @@
             // 
             // btnEditCar
             // 
-            btnEditCar.Location = new Point(245, 19);
+            btnEditCar.Font = new Font("Segoe UI", 12F);
+            btnEditCar.Location = new Point(334, 7);
             btnEditCar.Name = "btnEditCar";
-            btnEditCar.Size = new Size(75, 23);
+            btnEditCar.Size = new Size(106, 31);
             btnEditCar.TabIndex = 3;
             btnEditCar.Text = "Редагувати";
             btnEditCar.UseVisualStyleBackColor = true;
@@ -122,9 +134,10 @@
             // 
             // btnAddCar
             // 
-            btnAddCar.Location = new Point(164, 19);
+            btnAddCar.Font = new Font("Segoe UI", 12F);
+            btnAddCar.Location = new Point(222, 7);
             btnAddCar.Name = "btnAddCar";
-            btnAddCar.Size = new Size(75, 23);
+            btnAddCar.Size = new Size(106, 31);
             btnAddCar.TabIndex = 2;
             btnAddCar.Text = "Додати";
             btnAddCar.UseVisualStyleBackColor = true;
@@ -132,47 +145,132 @@
             // 
             // txtCarSearch
             // 
-            txtCarSearch.Location = new Point(58, 19);
+            txtCarSearch.Font = new Font("Segoe UI", 12F);
+            txtCarSearch.Location = new Point(71, 9);
             txtCarSearch.Name = "txtCarSearch";
-            txtCarSearch.Size = new Size(100, 23);
+            txtCarSearch.Size = new Size(145, 29);
             txtCarSearch.TabIndex = 1;
             txtCarSearch.TextChanged += txtCarSearch_TextChanged;
             // 
             // lblSearch
             // 
             lblSearch.AutoSize = true;
-            lblSearch.Location = new Point(6, 23);
+            lblSearch.Font = new Font("Segoe UI", 12F);
+            lblSearch.Location = new Point(6, 12);
             lblSearch.Name = "lblSearch";
-            lblSearch.Size = new Size(46, 15);
+            lblSearch.Size = new Size(59, 21);
             lblSearch.TabIndex = 0;
             lblSearch.Text = "Пошук";
             // 
             // tabBuyers
             // 
-            tabBuyers.Location = new Point(4, 24);
+            tabBuyers.Controls.Add(dgvBuyers);
+            tabBuyers.Controls.Add(btnDeleteBuyer);
+            tabBuyers.Controls.Add(btnEditBuyer);
+            tabBuyers.Controls.Add(btnAddBuyer);
+            tabBuyers.Controls.Add(txtBuyerSearch);
+            tabBuyers.Controls.Add(label2);
+            tabBuyers.Controls.Add(button3);
+            tabBuyers.Location = new Point(4, 30);
             tabBuyers.Name = "tabBuyers";
             tabBuyers.Padding = new Padding(3);
-            tabBuyers.Size = new Size(1181, 507);
+            tabBuyers.Size = new Size(1567, 628);
             tabBuyers.TabIndex = 1;
             tabBuyers.Text = "Покупці";
             tabBuyers.UseVisualStyleBackColor = true;
             // 
+            // dgvBuyers
+            // 
+            dgvBuyers.AllowUserToAddRows = false;
+            dgvBuyers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvBuyers.BackgroundColor = SystemColors.Control;
+            dgvBuyers.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvBuyers.Location = new Point(6, 44);
+            dgvBuyers.MultiSelect = false;
+            dgvBuyers.Name = "dgvBuyers";
+            dgvBuyers.ReadOnly = true;
+            dgvBuyers.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvBuyers.Size = new Size(1555, 417);
+            dgvBuyers.TabIndex = 10;
+            dgvBuyers.CellContentClick += dgvBuyers_CellContentClick;
+            // 
+            // btnDeleteBuyer
+            // 
+            btnDeleteBuyer.Font = new Font("Segoe UI", 12F);
+            btnDeleteBuyer.Location = new Point(446, 7);
+            btnDeleteBuyer.Name = "btnDeleteBuyer";
+            btnDeleteBuyer.Size = new Size(106, 31);
+            btnDeleteBuyer.TabIndex = 9;
+            btnDeleteBuyer.Text = "Видалити";
+            btnDeleteBuyer.UseVisualStyleBackColor = true;
+            btnDeleteBuyer.Click += btnDeleteBuyer_Click;
+            // 
+            // btnEditBuyer
+            // 
+            btnEditBuyer.Font = new Font("Segoe UI", 12F);
+            btnEditBuyer.Location = new Point(334, 7);
+            btnEditBuyer.Name = "btnEditBuyer";
+            btnEditBuyer.Size = new Size(106, 31);
+            btnEditBuyer.TabIndex = 8;
+            btnEditBuyer.Text = "Редагувати";
+            btnEditBuyer.UseVisualStyleBackColor = true;
+            btnEditBuyer.Click += btnEditBuyer_Click;
+            // 
+            // btnAddBuyer
+            // 
+            btnAddBuyer.Font = new Font("Segoe UI", 12F);
+            btnAddBuyer.Location = new Point(222, 7);
+            btnAddBuyer.Name = "btnAddBuyer";
+            btnAddBuyer.Size = new Size(106, 31);
+            btnAddBuyer.TabIndex = 7;
+            btnAddBuyer.Text = "Додати";
+            btnAddBuyer.UseVisualStyleBackColor = true;
+            btnAddBuyer.Click += btnAddBuyer_Click;
+            // 
+            // txtBuyerSearch
+            // 
+            txtBuyerSearch.Font = new Font("Segoe UI", 12F);
+            txtBuyerSearch.Location = new Point(71, 9);
+            txtBuyerSearch.Name = "txtBuyerSearch";
+            txtBuyerSearch.Size = new Size(145, 29);
+            txtBuyerSearch.TabIndex = 6;
+            txtBuyerSearch.TextChanged += txtBuyerSearch_TextChanged;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 12F);
+            label2.Location = new Point(6, 12);
+            label2.Name = "label2";
+            label2.Size = new Size(59, 21);
+            label2.TabIndex = 5;
+            label2.Text = "Пошук";
+            // 
+            // button3
+            // 
+            button3.Location = new Point(334, 115);
+            button3.Name = "button3";
+            button3.Size = new Size(0, 0);
+            button3.TabIndex = 4;
+            button3.Text = "button3";
+            button3.UseVisualStyleBackColor = true;
+            // 
             // tabMatching
             // 
-            tabMatching.Location = new Point(4, 24);
+            tabMatching.Location = new Point(4, 30);
             tabMatching.Name = "tabMatching";
             tabMatching.Padding = new Padding(3);
-            tabMatching.Size = new Size(1181, 507);
+            tabMatching.Size = new Size(1567, 628);
             tabMatching.TabIndex = 2;
             tabMatching.Text = "Підбір авто";
             tabMatching.UseVisualStyleBackColor = true;
             // 
             // tabRequests
             // 
-            tabRequests.Location = new Point(4, 24);
+            tabRequests.Location = new Point(4, 30);
             tabRequests.Name = "tabRequests";
             tabRequests.Padding = new Padding(3);
-            tabRequests.Size = new Size(1181, 507);
+            tabRequests.Size = new Size(1567, 628);
             tabRequests.TabIndex = 3;
             tabRequests.Text = "Заявки";
             tabRequests.UseVisualStyleBackColor = true;
@@ -181,7 +279,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1213, 716);
+            ClientSize = new Size(1599, 716);
             Controls.Add(tabMain);
             Controls.Add(lblTitle);
             Name = "MainForm";
@@ -190,6 +288,9 @@
             tabCars.ResumeLayout(false);
             tabCars.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvCars).EndInit();
+            tabBuyers.ResumeLayout(false);
+            tabBuyers.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvBuyers).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -208,5 +309,12 @@
         private TextBox txtCarSearch;
         private Label lblSearch;
         private DataGridView dgvCars;
+        private Button btnDeleteBuyer;
+        private Button btnEditBuyer;
+        private Button btnAddBuyer;
+        private TextBox txtBuyerSearch;
+        private Label label2;
+        private Button button3;
+        private DataGridView dgvBuyers;
     }
 }

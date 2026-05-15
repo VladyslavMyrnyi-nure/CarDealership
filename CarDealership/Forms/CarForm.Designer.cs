@@ -66,7 +66,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 12F);
-            label1.Location = new Point(17, 12);
+            label1.Location = new Point(12, 9);
             label1.Name = "label1";
             label1.Size = new Size(57, 21);
             label1.TabIndex = 0;
@@ -76,7 +76,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 12F);
-            label2.Location = new Point(17, 47);
+            label2.Location = new Point(12, 44);
             label2.Name = "label2";
             label2.Size = new Size(66, 21);
             label2.TabIndex = 1;
@@ -86,7 +86,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 12F);
-            label3.Location = new Point(17, 81);
+            label3.Location = new Point(12, 78);
             label3.Name = "label3";
             label3.Size = new Size(31, 21);
             label3.TabIndex = 2;
@@ -96,7 +96,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 12F);
-            label4.Location = new Point(17, 514);
+            label4.Location = new Point(12, 511);
             label4.Name = "label4";
             label4.Size = new Size(59, 21);
             label4.TabIndex = 3;
@@ -106,7 +106,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 12F);
-            label5.Location = new Point(16, 186);
+            label5.Location = new Point(11, 183);
             label5.Name = "label5";
             label5.Size = new Size(84, 21);
             label5.TabIndex = 4;
@@ -116,7 +116,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 12F);
-            label6.Location = new Point(17, 326);
+            label6.Location = new Point(12, 323);
             label6.Name = "label6";
             label6.Size = new Size(44, 21);
             label6.TabIndex = 5;
@@ -125,7 +125,7 @@
             // txtBrand
             // 
             txtBrand.Font = new Font("Segoe UI", 12F);
-            txtBrand.Location = new Point(175, 12);
+            txtBrand.Location = new Point(170, 9);
             txtBrand.Name = "txtBrand";
             txtBrand.Size = new Size(182, 29);
             txtBrand.TabIndex = 6;
@@ -134,7 +134,7 @@
             // txtModel
             // 
             txtModel.Font = new Font("Segoe UI", 12F);
-            txtModel.Location = new Point(175, 47);
+            txtModel.Location = new Point(170, 44);
             txtModel.Name = "txtModel";
             txtModel.Size = new Size(182, 29);
             txtModel.TabIndex = 7;
@@ -143,7 +143,7 @@
             // txtCountry
             // 
             txtCountry.Font = new Font("Segoe UI", 12F);
-            txtCountry.Location = new Point(175, 222);
+            txtCountry.Location = new Point(170, 219);
             txtCountry.Name = "txtCountry";
             txtCountry.Size = new Size(182, 29);
             txtCountry.TabIndex = 8;
@@ -152,7 +152,7 @@
             // nudYear
             // 
             nudYear.Font = new Font("Segoe UI", 12F);
-            nudYear.Location = new Point(175, 82);
+            nudYear.Location = new Point(170, 79);
             nudYear.Maximum = new decimal(new int[] { 2100, 0, 0, 0 });
             nudYear.Minimum = new decimal(new int[] { 1950, 0, 0, 0 });
             nudYear.Name = "nudYear";
@@ -164,7 +164,7 @@
             // nudPrice
             // 
             nudPrice.Font = new Font("Segoe UI", 12F);
-            nudPrice.Location = new Point(121, 512);
+            nudPrice.Location = new Point(116, 509);
             nudPrice.Maximum = new decimal(new int[] { 10000000, 0, 0, 0 });
             nudPrice.Name = "nudPrice";
             nudPrice.Size = new Size(120, 29);
@@ -178,7 +178,7 @@
             cmbCondition.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbCondition.Font = new Font("Segoe UI", 12F);
             cmbCondition.FormattingEnabled = true;
-            cmbCondition.Location = new Point(175, 326);
+            cmbCondition.Location = new Point(170, 323);
             cmbCondition.Name = "cmbCondition";
             cmbCondition.Size = new Size(182, 29);
             cmbCondition.TabIndex = 11;
@@ -187,7 +187,7 @@
             // btnSave
             // 
             btnSave.Font = new Font("Segoe UI", 12F);
-            btnSave.Location = new Point(16, 578);
+            btnSave.Location = new Point(11, 575);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(170, 38);
             btnSave.TabIndex = 12;
@@ -199,7 +199,7 @@
             // 
             btnCancel.DialogResult = DialogResult.Cancel;
             btnCancel.Font = new Font("Segoe UI", 12F);
-            btnCancel.Location = new Point(187, 578);
+            btnCancel.Location = new Point(182, 575);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(170, 38);
             btnCancel.TabIndex = 13;
@@ -212,7 +212,7 @@
             nudEngine.DecimalPlaces = 1;
             nudEngine.Font = new Font("Segoe UI", 12F);
             nudEngine.Increment = new decimal(new int[] { 1, 0, 0, 65536 });
-            nudEngine.Location = new Point(175, 117);
+            nudEngine.Location = new Point(170, 114);
             nudEngine.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
             nudEngine.Name = "nudEngine";
             nudEngine.Size = new Size(182, 29);
@@ -224,7 +224,7 @@
             // 
             lblEngine.AutoSize = true;
             lblEngine.Font = new Font("Segoe UI", 12F);
-            lblEngine.Location = new Point(16, 116);
+            lblEngine.Location = new Point(11, 113);
             lblEngine.Name = "lblEngine";
             lblEngine.Size = new Size(132, 21);
             lblEngine.TabIndex = 15;
@@ -234,7 +234,7 @@
             // 
             lblHorsePower.AutoSize = true;
             lblHorsePower.Font = new Font("Segoe UI", 12F);
-            lblHorsePower.Location = new Point(17, 151);
+            lblHorsePower.Location = new Point(12, 148);
             lblHorsePower.Name = "lblHorsePower";
             lblHorsePower.Size = new Size(120, 21);
             lblHorsePower.TabIndex = 16;
@@ -243,7 +243,7 @@
             // nudHorsePower
             // 
             nudHorsePower.Font = new Font("Segoe UI", 12F);
-            nudHorsePower.Location = new Point(175, 152);
+            nudHorsePower.Location = new Point(170, 149);
             nudHorsePower.Maximum = new decimal(new int[] { 2000, 0, 0, 0 });
             nudHorsePower.Name = "nudHorsePower";
             nudHorsePower.Size = new Size(182, 29);
@@ -255,7 +255,7 @@
             // 
             lblCountry.AutoSize = true;
             lblCountry.Font = new Font("Segoe UI", 12F);
-            lblCountry.Location = new Point(16, 222);
+            lblCountry.Location = new Point(11, 219);
             lblCountry.Name = "lblCountry";
             lblCountry.Size = new Size(57, 21);
             lblCountry.TabIndex = 18;
@@ -264,7 +264,7 @@
             // nudMileage
             // 
             nudMileage.Font = new Font("Segoe UI", 12F);
-            nudMileage.Location = new Point(175, 187);
+            nudMileage.Location = new Point(170, 184);
             nudMileage.Maximum = new decimal(new int[] { 1000000, 0, 0, 0 });
             nudMileage.Name = "nudMileage";
             nudMileage.Size = new Size(182, 29);
@@ -276,7 +276,7 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 12F);
-            label7.Location = new Point(17, 256);
+            label7.Location = new Point(12, 253);
             label7.Name = "label7";
             label7.Size = new Size(62, 21);
             label7.TabIndex = 20;
@@ -287,7 +287,7 @@
             cmbFuel.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbFuel.Font = new Font("Segoe UI", 12F);
             cmbFuel.FormattingEnabled = true;
-            cmbFuel.Location = new Point(175, 256);
+            cmbFuel.Location = new Point(170, 253);
             cmbFuel.Name = "cmbFuel";
             cmbFuel.Size = new Size(182, 29);
             cmbFuel.TabIndex = 21;
@@ -297,7 +297,7 @@
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI", 12F);
-            label8.Location = new Point(17, 291);
+            label8.Location = new Point(12, 288);
             label8.Name = "label8";
             label8.Size = new Size(135, 21);
             label8.TabIndex = 22;
@@ -308,7 +308,7 @@
             cmbTransmission.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbTransmission.Font = new Font("Segoe UI", 12F);
             cmbTransmission.FormattingEnabled = true;
-            cmbTransmission.Location = new Point(175, 291);
+            cmbTransmission.Location = new Point(170, 288);
             cmbTransmission.Name = "cmbTransmission";
             cmbTransmission.Size = new Size(182, 29);
             cmbTransmission.TabIndex = 23;
@@ -318,7 +318,7 @@
             // 
             chkIsNew.AutoSize = true;
             chkIsNew.Font = new Font("Segoe UI", 12F);
-            chkIsNew.Location = new Point(17, 361);
+            chkIsNew.Location = new Point(12, 358);
             chkIsNew.Name = "chkIsNew";
             chkIsNew.Size = new Size(164, 25);
             chkIsNew.TabIndex = 24;
@@ -330,7 +330,7 @@
             // 
             label9.AutoSize = true;
             label9.Font = new Font("Segoe UI", 12F);
-            label9.Location = new Point(16, 392);
+            label9.Location = new Point(11, 389);
             label9.Name = "label9";
             label9.Size = new Size(99, 21);
             label9.TabIndex = 25;
@@ -339,7 +339,7 @@
             // rtbFeatures
             // 
             rtbFeatures.Font = new Font("Segoe UI", 12F);
-            rtbFeatures.Location = new Point(121, 392);
+            rtbFeatures.Location = new Point(116, 389);
             rtbFeatures.Name = "rtbFeatures";
             rtbFeatures.Size = new Size(236, 108);
             rtbFeatures.TabIndex = 26;
@@ -350,7 +350,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(377, 644);
+            ClientSize = new Size(371, 644);
             Controls.Add(rtbFeatures);
             Controls.Add(label9);
             Controls.Add(chkIsNew);
