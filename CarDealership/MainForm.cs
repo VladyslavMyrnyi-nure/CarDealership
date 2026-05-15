@@ -9,6 +9,7 @@ namespace CarDealership
         private CarService carService;
         private CarGridService carGridService;
         private CarSelectionService carSelectionService;
+        private CarSearchService carSearchService;
 
         // Конструктор форми
         public MainForm()
@@ -18,6 +19,7 @@ namespace CarDealership
             carService = new CarService();
             carGridService = new CarGridService();
             carSelectionService = new CarSelectionService();
+            carSearchService = new CarSearchService();
 
             LoadCars();
         }
@@ -25,8 +27,12 @@ namespace CarDealership
         // Метод для завантаження автомобілів у таблицю
         private void LoadCars()
         {
+            string searchText = txtCarSearch.Text;
+
+            List<Car> cars = carSearchService.SearchCars(carService.Cars, searchText);
+
             dgvCars.DataSource = null;
-            dgvCars.DataSource = carGridService.GetCarsForGrid(carService.Cars);
+            dgvCars.DataSource = carGridService.GetCarsForGrid(cars);
             dgvCars.Columns["Id"].Visible = false;
         }
 
@@ -100,12 +106,12 @@ namespace CarDealership
 
         private void txtCarSearch_TextChanged(object sender, EventArgs e)
         {
-
+            LoadCars();
         }
 
         private void dgvCars_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            
         }
     }
 }

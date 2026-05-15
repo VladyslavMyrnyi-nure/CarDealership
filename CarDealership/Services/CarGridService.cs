@@ -10,11 +10,19 @@ namespace CarDealership.Services
             return cars.Select(car => new
             {
                 Id = car.Id,
+
                 Марка = car.Brand,
                 Модель = car.Model,
                 Рік = car.Year,
+                Обєм_двигуна = car.EngineVolume,
+                Потужність = $"{car.HorsePower} к.с.",
+                Пробіг = $"{car.Mileage:N0} км",
                 Країна = car.Country,
+                Пальне = car.FuelType,
+                Коробка = car.Transmission,
                 Стан = car.Condition,
+                Новий = car.IsNew ? "Так" : "Ні",
+                Особливості = car.Features,
                 Ціна = $"{car.Price:N0}$"
             }).ToList();
         }

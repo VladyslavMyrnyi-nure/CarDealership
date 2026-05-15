@@ -22,8 +22,7 @@ namespace CarDealership.Services
 
         public void DeleteCar(Guid id)
         {
-            Car? car = Cars.FirstOrDefault(
-                    x => x.Id == id);
+            Car? car = Cars.FirstOrDefault(x => x.Id == id);
 
             if (car != null)
             {

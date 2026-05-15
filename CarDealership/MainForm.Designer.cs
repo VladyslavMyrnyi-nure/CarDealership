@@ -64,7 +64,7 @@
             tabMain.Location = new Point(12, 42);
             tabMain.Name = "tabMain";
             tabMain.SelectedIndex = 0;
-            tabMain.Size = new Size(1030, 535);
+            tabMain.Size = new Size(1189, 535);
             tabMain.TabIndex = 5;
             tabMain.Tag = "";
             // 
@@ -79,7 +79,7 @@
             tabCars.Location = new Point(4, 24);
             tabCars.Name = "tabCars";
             tabCars.Padding = new Padding(3);
-            tabCars.Size = new Size(1022, 507);
+            tabCars.Size = new Size(1181, 507);
             tabCars.TabIndex = 0;
             tabCars.Text = "Автомобілі";
             tabCars.UseVisualStyleBackColor = true;
@@ -89,13 +89,14 @@
             // 
             dgvCars.AllowUserToAddRows = false;
             dgvCars.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvCars.BackgroundColor = SystemColors.Control;
             dgvCars.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvCars.Location = new Point(6, 48);
             dgvCars.MultiSelect = false;
             dgvCars.Name = "dgvCars";
             dgvCars.ReadOnly = true;
             dgvCars.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvCars.Size = new Size(1010, 417);
+            dgvCars.Size = new Size(1169, 417);
             dgvCars.TabIndex = 5;
             dgvCars.CellContentClick += dgvCars_CellContentClick;
             // 
@@ -151,7 +152,7 @@
             tabBuyers.Location = new Point(4, 24);
             tabBuyers.Name = "tabBuyers";
             tabBuyers.Padding = new Padding(3);
-            tabBuyers.Size = new Size(1022, 471);
+            tabBuyers.Size = new Size(1181, 507);
             tabBuyers.TabIndex = 1;
             tabBuyers.Text = "Покупці";
             tabBuyers.UseVisualStyleBackColor = true;
@@ -161,7 +162,7 @@
             tabMatching.Location = new Point(4, 24);
             tabMatching.Name = "tabMatching";
             tabMatching.Padding = new Padding(3);
-            tabMatching.Size = new Size(1022, 471);
+            tabMatching.Size = new Size(1181, 507);
             tabMatching.TabIndex = 2;
             tabMatching.Text = "Підбір авто";
             tabMatching.UseVisualStyleBackColor = true;
@@ -171,7 +172,7 @@
             tabRequests.Location = new Point(4, 24);
             tabRequests.Name = "tabRequests";
             tabRequests.Padding = new Padding(3);
-            tabRequests.Size = new Size(1022, 471);
+            tabRequests.Size = new Size(1181, 507);
             tabRequests.TabIndex = 3;
             tabRequests.Text = "Заявки";
             tabRequests.UseVisualStyleBackColor = true;
@@ -180,7 +181,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1054, 775);
+            ClientSize = new Size(1213, 716);
             Controls.Add(tabMain);
             Controls.Add(lblTitle);
             Name = "MainForm";
