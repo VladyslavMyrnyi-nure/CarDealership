@@ -7,15 +7,21 @@ namespace CarDealership
 {
     public partial class MainForm : Form
     {
+        // Сервіси для роботи з машинами та логікою
         private CarService carService;
         private CarGridService carGridService;
         private CarSelectionService carSelectionService;
         private CarSearchService carSearchService;
 
+        // Сервіси для роботи з покупцями та логікою
         private BuyerService buyerService;
         private BuyerGridService buyerGridService;
         private BuyerSelectionService buyerSelectionService;
         private BuyerSearchService buyerSearchService;
+
+        // Сервіси для логіки підбору автомобілів покупцям
+        private MatchingService matchingService;
+        private MatchingGridService matchingGridService;
 
         // Конструктор форми
         public MainForm()
@@ -29,12 +35,15 @@ namespace CarDealership
 
             buyerService = new BuyerService();
             buyerGridService = new BuyerGridService();
-
             buyerSelectionService = new BuyerSelectionService();
             buyerSearchService = new BuyerSearchService();
 
+            matchingService = new MatchingService();
+            matchingGridService = new MatchingGridService();
+
             LoadCars();
             LoadBuyers();
+            LoadBuyerCombo();
         }
 
         // Метод для завантаження автомобілів у таблицю
@@ -85,7 +94,12 @@ namespace CarDealership
             dgvBuyers.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
         }
 
-
+        private void LoadBuyerCombo()
+        {
+            cmbBuyers.DataSource = null;
+            cmbBuyers.DataSource = buyerService.Buyers;
+            cmbBuyers.DisplayMember = "FullName";
+        }
 
         private void tabCars_Click(object sender, EventArgs e)
         {
@@ -203,7 +217,7 @@ namespace CarDealership
             }
 
 
-           
+
         }
 
         private void btnDeleteBuyer_Click(object sender, EventArgs e)
@@ -237,6 +251,21 @@ namespace CarDealership
         private void dgvBuyers_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void cmbBuyers_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnFindCars_Click(object sender, EventArgs e)
+        {
+            Buyer buyer = (Buyer)cmbBuyers.SelectedItem;
+
+            var cars = matchingService.FindCars(buyer, carService.Cars);
+
+            dgvMatches.DataSource = null;
+            dgvMatches.DataSource = matchingGridService.GetCars(cars);
         }
     }
 }

@@ -69,7 +69,7 @@ namespace CarDealership.Services
                 Mileage = 85000,
                 Condition = TechnicalCondition.Good,
                 Features = "Клімат-контроль, Камера",
-                Price = 950000
+                Price = 20000
             });
 
             Cars.Add(new Car
@@ -86,7 +86,126 @@ namespace CarDealership.Services
                 Mileage = 0,
                 Condition = TechnicalCondition.Excellent,
                 Features = "Шкіряний салон",
-                Price = 2850000
+                Price = 32000
+            });
+
+            Cars.Add(new Car
+            {
+                Brand = "Audi",
+                Model = "A6",
+                Year = 2019,
+                Country = "Germany",
+                IsNew = false,
+                EngineVolume = 2.0,
+                HorsePower = 245,
+                FuelType = FuelType.Petrol,
+                Transmission = TransmissionType.Automatic,
+                Mileage = 78000,
+                Condition = TechnicalCondition.Good,
+                Features = "Круїз-контроль, камера, парктроніки",
+                Price = 27000
+            });
+
+            Cars.Add(new Car
+            {
+                Brand = "Mercedes",
+                Model = "E220",
+                Year = 2021,
+                Country = "Germany",
+                IsNew = false,
+                EngineVolume = 2.0,
+                HorsePower = 194,
+                FuelType = FuelType.Diesel,
+                Transmission = TransmissionType.Automatic,
+                Mileage = 35000,
+                Condition = TechnicalCondition.Excellent,
+                Features = "Шкіряний салон, підігрів сидінь",
+                Price = 43000
+            });
+
+            Cars.Add(new Car
+            {
+                Brand = "Volkswagen",
+                Model = "Passat",
+                Year = 2019,
+                Country = "Germany",
+                IsNew = false,
+                EngineVolume = 1.8,
+                HorsePower = 180,
+                FuelType = FuelType.Petrol,
+                Transmission = TransmissionType.Automatic,
+                Mileage = 92000,
+                Condition = TechnicalCondition.Good,
+                Features = "Клімат-контроль, автомат",
+                Price = 22000
+            });
+
+            Cars.Add(new Car
+            {
+                Brand = "Toyota",
+                Model = "Corolla",
+                Year = 2022,
+                Country = "Japan",
+                IsNew = true,
+                EngineVolume = 1.6,
+                HorsePower = 132,
+                FuelType = FuelType.Petrol,
+                Transmission = TransmissionType.Automatic,
+                Mileage = 0,
+                Condition = TechnicalCondition.Excellent,
+                Features = "Камера, мультимедіа",
+                Price = 25000
+            });
+
+            Cars.Add(new Car
+            {
+                Brand = "Skoda",
+                Model = "Octavia",
+                Year = 2020,
+                Country = "Czech Republic",
+                IsNew = false,
+                EngineVolume = 1.6,
+                HorsePower = 150,
+                FuelType = FuelType.Diesel,
+                Transmission = TransmissionType.Manual,
+                Mileage = 67000,
+                Condition = TechnicalCondition.Good,
+                Features = "Економний двигун, клімат",
+                Price = 21000
+            });
+
+            Cars.Add(new Car
+            {
+                Brand = "Honda",
+                Model = "Civic",
+                Year = 2019,
+                Country = "Japan",
+                IsNew = false,
+                EngineVolume = 1.5,
+                HorsePower = 182,
+                FuelType = FuelType.Petrol,
+                Transmission = TransmissionType.CVT,
+                Mileage = 81000,
+                Condition = TechnicalCondition.Good,
+                Features = "Безключовий доступ",
+                Price = 23000
+            });
+
+            Cars.Add(new Car
+            {
+                Brand = "Ford",
+                Model = "Focus",
+                Year = 2017,
+                Country = "USA",
+                IsNew = false,
+                EngineVolume = 1.6,
+                HorsePower = 125,
+                FuelType = FuelType.Diesel,
+                Transmission = TransmissionType.Manual,
+                Mileage = 135000,
+                Condition = TechnicalCondition.Satisfactory,
+                Features = "Кондиціонер",
+                Price = 14000
             });
         }
     }

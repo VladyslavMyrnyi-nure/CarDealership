@@ -46,12 +46,19 @@
             label2 = new Label();
             button3 = new Button();
             tabMatching = new TabPage();
+            btnFindCars = new Button();
+            button1 = new Button();
+            cmbBuyers = new ComboBox();
+            label3 = new Label();
+            dgvMatches = new DataGridView();
             tabRequests = new TabPage();
             tabMain.SuspendLayout();
             tabCars.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvCars).BeginInit();
             tabBuyers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvBuyers).BeginInit();
+            tabMatching.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvMatches).BeginInit();
             SuspendLayout();
             // 
             // lblTitle
@@ -257,6 +264,11 @@
             // 
             // tabMatching
             // 
+            tabMatching.Controls.Add(btnFindCars);
+            tabMatching.Controls.Add(button1);
+            tabMatching.Controls.Add(cmbBuyers);
+            tabMatching.Controls.Add(label3);
+            tabMatching.Controls.Add(dgvMatches);
             tabMatching.Location = new Point(4, 30);
             tabMatching.Name = "tabMatching";
             tabMatching.Padding = new Padding(3);
@@ -264,6 +276,60 @@
             tabMatching.TabIndex = 2;
             tabMatching.Text = "Підбір авто";
             tabMatching.UseVisualStyleBackColor = true;
+            // 
+            // btnFindCars
+            // 
+            btnFindCars.Font = new Font("Segoe UI", 12F);
+            btnFindCars.Location = new Point(349, 8);
+            btnFindCars.Name = "btnFindCars";
+            btnFindCars.Size = new Size(137, 31);
+            btnFindCars.TabIndex = 15;
+            btnFindCars.Text = "Підібрати авто";
+            btnFindCars.UseVisualStyleBackColor = true;
+            btnFindCars.Click += btnFindCars_Click;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(372, 12);
+            button1.Name = "button1";
+            button1.Size = new Size(0, 0);
+            button1.TabIndex = 14;
+            button1.Text = "button1";
+            button1.UseVisualStyleBackColor = true;
+            // 
+            // cmbBuyers
+            // 
+            cmbBuyers.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbBuyers.FormattingEnabled = true;
+            cmbBuyers.Location = new Point(93, 10);
+            cmbBuyers.Name = "cmbBuyers";
+            cmbBuyers.Size = new Size(250, 29);
+            cmbBuyers.TabIndex = 13;
+            cmbBuyers.SelectedIndexChanged += cmbBuyers_SelectedIndexChanged;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 12F);
+            label3.Location = new Point(6, 12);
+            label3.Name = "label3";
+            label3.Size = new Size(81, 21);
+            label3.TabIndex = 12;
+            label3.Text = "Покупець";
+            // 
+            // dgvMatches
+            // 
+            dgvMatches.AllowUserToAddRows = false;
+            dgvMatches.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvMatches.BackgroundColor = SystemColors.Control;
+            dgvMatches.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvMatches.Location = new Point(6, 45);
+            dgvMatches.MultiSelect = false;
+            dgvMatches.Name = "dgvMatches";
+            dgvMatches.ReadOnly = true;
+            dgvMatches.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvMatches.Size = new Size(1555, 417);
+            dgvMatches.TabIndex = 11;
             // 
             // tabRequests
             // 
@@ -291,6 +357,9 @@
             tabBuyers.ResumeLayout(false);
             tabBuyers.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvBuyers).EndInit();
+            tabMatching.ResumeLayout(false);
+            tabMatching.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvMatches).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -316,5 +385,10 @@
         private Label label2;
         private Button button3;
         private DataGridView dgvBuyers;
+        private Label label3;
+        private DataGridView dgvMatches;
+        private Button btnFindCars;
+        private Button button1;
+        private ComboBox cmbBuyers;
     }
 }
