@@ -8,6 +8,8 @@ namespace CarDealership.Services
         {
             return cars.Select(car => new
             {
+                Id = car.Id,
+
                 Марка = car.Brand,
                 Модель = car.Model,
                 Рік = car.Year,

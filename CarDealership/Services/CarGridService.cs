@@ -18,6 +18,8 @@ namespace CarDealership.Services
                 Потужність = $"{car.HorsePower} к.с.",
                 Пробіг = $"{car.Mileage:N0} км",
                 Країна = car.Country,
+                Тип = car.BodyType,
+                Місце = car.Location,
                 Пальне = car.FuelType,
                 Коробка = car.Transmission,
                 Стан = car.Condition,

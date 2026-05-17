@@ -23,6 +23,10 @@ namespace CarDealership.Models
         public TechnicalCondition Condition { get; set; }
         public string Features { get; set; }
         public decimal Price { get; set; }
+        public string Location { get; set; }
+        public BodyType BodyType { get; set; }
+
+        // Конструктор за замовчуванням
         public Car()
         {
                 Id = Guid.NewGuid();
@@ -31,6 +35,7 @@ namespace CarDealership.Models
             Model = string.Empty;
             Country = string.Empty;
             Features = string.Empty;
+            Location = "";
         }
 
         public override string ToString()

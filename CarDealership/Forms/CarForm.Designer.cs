@@ -55,6 +55,10 @@
             chkIsNew = new CheckBox();
             label9 = new Label();
             rtbFeatures = new RichTextBox();
+            label10 = new Label();
+            cmbBodyType = new ComboBox();
+            label11 = new Label();
+            txtLocation = new TextBox();
             ((System.ComponentModel.ISupportInitialize)nudYear).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudPrice).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudEngine).BeginInit();
@@ -96,7 +100,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 12F);
-            label4.Location = new Point(12, 511);
+            label4.Location = new Point(11, 595);
             label4.Name = "label4";
             label4.Size = new Size(59, 21);
             label4.TabIndex = 3;
@@ -106,7 +110,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 12F);
-            label5.Location = new Point(11, 183);
+            label5.Location = new Point(12, 186);
             label5.Name = "label5";
             label5.Size = new Size(84, 21);
             label5.TabIndex = 4;
@@ -116,7 +120,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 12F);
-            label6.Location = new Point(12, 323);
+            label6.Location = new Point(12, 393);
             label6.Name = "label6";
             label6.Size = new Size(44, 21);
             label6.TabIndex = 5;
@@ -143,7 +147,7 @@
             // txtCountry
             // 
             txtCountry.Font = new Font("Segoe UI", 12F);
-            txtCountry.Location = new Point(170, 219);
+            txtCountry.Location = new Point(170, 289);
             txtCountry.Name = "txtCountry";
             txtCountry.Size = new Size(182, 29);
             txtCountry.TabIndex = 8;
@@ -164,7 +168,7 @@
             // nudPrice
             // 
             nudPrice.Font = new Font("Segoe UI", 12F);
-            nudPrice.Location = new Point(116, 509);
+            nudPrice.Location = new Point(115, 593);
             nudPrice.Maximum = new decimal(new int[] { 10000000, 0, 0, 0 });
             nudPrice.Name = "nudPrice";
             nudPrice.Size = new Size(120, 29);
@@ -178,7 +182,7 @@
             cmbCondition.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbCondition.Font = new Font("Segoe UI", 12F);
             cmbCondition.FormattingEnabled = true;
-            cmbCondition.Location = new Point(170, 323);
+            cmbCondition.Location = new Point(170, 393);
             cmbCondition.Name = "cmbCondition";
             cmbCondition.Size = new Size(182, 29);
             cmbCondition.TabIndex = 11;
@@ -187,7 +191,7 @@
             // btnSave
             // 
             btnSave.Font = new Font("Segoe UI", 12F);
-            btnSave.Location = new Point(11, 575);
+            btnSave.Location = new Point(10, 659);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(170, 38);
             btnSave.TabIndex = 12;
@@ -199,9 +203,9 @@
             // 
             btnCancel.DialogResult = DialogResult.Cancel;
             btnCancel.Font = new Font("Segoe UI", 12F);
-            btnCancel.Location = new Point(182, 575);
+            btnCancel.Location = new Point(181, 659);
             btnCancel.Name = "btnCancel";
-            btnCancel.Size = new Size(170, 38);
+            btnCancel.Size = new Size(171, 38);
             btnCancel.TabIndex = 13;
             btnCancel.Text = "Скасувати";
             btnCancel.UseVisualStyleBackColor = true;
@@ -255,7 +259,7 @@
             // 
             lblCountry.AutoSize = true;
             lblCountry.Font = new Font("Segoe UI", 12F);
-            lblCountry.Location = new Point(11, 219);
+            lblCountry.Location = new Point(11, 289);
             lblCountry.Name = "lblCountry";
             lblCountry.Size = new Size(57, 21);
             lblCountry.TabIndex = 18;
@@ -276,7 +280,7 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 12F);
-            label7.Location = new Point(12, 253);
+            label7.Location = new Point(12, 323);
             label7.Name = "label7";
             label7.Size = new Size(62, 21);
             label7.TabIndex = 20;
@@ -287,7 +291,7 @@
             cmbFuel.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbFuel.Font = new Font("Segoe UI", 12F);
             cmbFuel.FormattingEnabled = true;
-            cmbFuel.Location = new Point(170, 253);
+            cmbFuel.Location = new Point(170, 323);
             cmbFuel.Name = "cmbFuel";
             cmbFuel.Size = new Size(182, 29);
             cmbFuel.TabIndex = 21;
@@ -297,7 +301,7 @@
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI", 12F);
-            label8.Location = new Point(12, 288);
+            label8.Location = new Point(12, 358);
             label8.Name = "label8";
             label8.Size = new Size(135, 21);
             label8.TabIndex = 22;
@@ -308,7 +312,7 @@
             cmbTransmission.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbTransmission.Font = new Font("Segoe UI", 12F);
             cmbTransmission.FormattingEnabled = true;
-            cmbTransmission.Location = new Point(170, 288);
+            cmbTransmission.Location = new Point(170, 358);
             cmbTransmission.Name = "cmbTransmission";
             cmbTransmission.Size = new Size(182, 29);
             cmbTransmission.TabIndex = 23;
@@ -318,7 +322,7 @@
             // 
             chkIsNew.AutoSize = true;
             chkIsNew.Font = new Font("Segoe UI", 12F);
-            chkIsNew.Location = new Point(12, 358);
+            chkIsNew.Location = new Point(11, 442);
             chkIsNew.Name = "chkIsNew";
             chkIsNew.Size = new Size(164, 25);
             chkIsNew.TabIndex = 24;
@@ -330,7 +334,7 @@
             // 
             label9.AutoSize = true;
             label9.Font = new Font("Segoe UI", 12F);
-            label9.Location = new Point(11, 389);
+            label9.Location = new Point(10, 473);
             label9.Name = "label9";
             label9.Size = new Size(99, 21);
             label9.TabIndex = 25;
@@ -339,18 +343,62 @@
             // rtbFeatures
             // 
             rtbFeatures.Font = new Font("Segoe UI", 12F);
-            rtbFeatures.Location = new Point(116, 389);
+            rtbFeatures.Location = new Point(115, 473);
             rtbFeatures.Name = "rtbFeatures";
-            rtbFeatures.Size = new Size(236, 108);
+            rtbFeatures.Size = new Size(237, 108);
             rtbFeatures.TabIndex = 26;
             rtbFeatures.Text = "";
             rtbFeatures.TextChanged += rtbFeatures_TextChanged;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Segoe UI", 12F);
+            label10.Location = new Point(12, 222);
+            label10.Name = "label10";
+            label10.Size = new Size(88, 21);
+            label10.TabIndex = 27;
+            label10.Text = "Тип кузова";
+            // 
+            // cmbBodyType
+            // 
+            cmbBodyType.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbBodyType.Font = new Font("Segoe UI", 12F);
+            cmbBodyType.FormattingEnabled = true;
+            cmbBodyType.Location = new Point(170, 219);
+            cmbBodyType.Name = "cmbBodyType";
+            cmbBodyType.Size = new Size(182, 29);
+            cmbBodyType.TabIndex = 28;
+            cmbBodyType.SelectedIndexChanged += cmbBodyType_SelectedIndexChanged;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Font = new Font("Segoe UI", 12F);
+            label11.Location = new Point(12, 257);
+            label11.Name = "label11";
+            label11.Size = new Size(152, 21);
+            label11.TabIndex = 29;
+            label11.Text = "Місце знаходження";
+            // 
+            // txtLocation
+            // 
+            txtLocation.Font = new Font("Segoe UI", 12F);
+            txtLocation.Location = new Point(170, 254);
+            txtLocation.Name = "txtLocation";
+            txtLocation.Size = new Size(182, 29);
+            txtLocation.TabIndex = 30;
+            txtLocation.TextChanged += txtLocation_TextChanged;
             // 
             // CarForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(371, 644);
+            ClientSize = new Size(371, 747);
+            Controls.Add(txtLocation);
+            Controls.Add(label11);
+            Controls.Add(cmbBodyType);
+            Controls.Add(label10);
             Controls.Add(rtbFeatures);
             Controls.Add(label9);
             Controls.Add(chkIsNew);
@@ -423,5 +471,9 @@
         private CheckBox chkIsNew;
         private Label label9;
         private RichTextBox rtbFeatures;
+        private Label label10;
+        private ComboBox cmbBodyType;
+        private Label label11;
+        private TextBox txtLocation;
     }
 }

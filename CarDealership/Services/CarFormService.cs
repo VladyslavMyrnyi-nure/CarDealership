@@ -6,13 +6,12 @@ namespace CarDealership.Services
     /// Логіка форми автомобіля
     public class CarFormService
     {
-        public void LoadComboBoxes(ComboBox cmbFuel, ComboBox cmbTransmission, ComboBox cmbCondition)
+        public void LoadComboBoxes(ComboBox cmbFuel, ComboBox cmbTransmission, ComboBox cmbCondition, ComboBox cmbBodyType)
         {
             cmbFuel.DataSource = Enum.GetValues(typeof(FuelType));
-
             cmbTransmission.DataSource = Enum.GetValues(typeof(TransmissionType));
-
             cmbCondition.DataSource = Enum.GetValues(typeof(TechnicalCondition));
+            cmbBodyType.DataSource = Enum.GetValues(typeof(BodyType));
         }
 
         public bool ValidateData(
@@ -40,6 +39,8 @@ namespace CarDealership.Services
             FuelType fuel,
             TransmissionType transmission,
             TechnicalCondition condition,
+            BodyType bodyType,
+            string location,
             bool isNew,
             decimal price)
         {
@@ -53,6 +54,8 @@ namespace CarDealership.Services
                 Mileage = mileage,
                 Country = country.Trim(),
                 Features = features.Trim(),
+                Location = location,
+                BodyType = bodyType,
                 FuelType = fuel,
                 Transmission = transmission,
                 Condition = condition,

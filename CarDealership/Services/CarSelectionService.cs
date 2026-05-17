@@ -1,5 +1,6 @@
 ﻿namespace CarDealership.Services
 {
+    // Сервіс для отримання Id вибраного автомобіля з таблиці
     public class CarSelectionService
     {
         public Guid GetSelectedId(DataGridView grid)

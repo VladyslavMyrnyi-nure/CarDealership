@@ -16,8 +16,7 @@ namespace CarDealership.Forms
             InitializeComponent();
 
             carFormService = new CarFormService();
-
-            carFormService.LoadComboBoxes(cmbFuel, cmbTransmission, cmbCondition);
+            carFormService.LoadComboBoxes(cmbFuel, cmbTransmission, cmbCondition, cmbBodyType);
         }
 
         // Конструктор для редагування автомобіля
@@ -26,8 +25,7 @@ namespace CarDealership.Forms
             InitializeComponent();
 
             carFormService = new CarFormService();
-
-            carFormService.LoadComboBoxes(cmbFuel, cmbTransmission, cmbCondition);
+            carFormService.LoadComboBoxes(cmbFuel, cmbTransmission, cmbCondition, cmbBodyType);
 
             FillFields(car);
         }
@@ -45,6 +43,8 @@ namespace CarDealership.Forms
             cmbFuel.SelectedItem = car.FuelType;
             cmbTransmission.SelectedItem = car.Transmission;
             cmbCondition.SelectedItem = car.Condition;
+            cmbBodyType.SelectedItem = car.BodyType;
+            txtLocation.Text = car.Location;
             chkIsNew.Checked = car.IsNew;
             nudPrice.Value = car.Price;
         }
@@ -123,36 +123,24 @@ namespace CarDealership.Forms
                 return;
             }
 
-            NewCar =
-                carFormService.CreateCar(
-
+            NewCar = carFormService.CreateCar(
                 txtBrand.Text,
-
                 txtModel.Text,
-
                 (int)nudYear.Value,
-
                 (double)nudEngine.Value,
-
                 (int)nudHorsePower.Value,
-
                 (int)nudMileage.Value,
-
                 txtCountry.Text,
-
                 rtbFeatures.Text,
-
                 (FuelType)cmbFuel.SelectedItem!,
-
                 (TransmissionType)cmbTransmission.SelectedItem!,
-
                 (TechnicalCondition)cmbCondition.SelectedItem!,
-
+                (BodyType)cmbBodyType.SelectedItem!,
+                txtLocation.Text,
                 chkIsNew.Checked,
-
                 nudPrice.Value);
 
-                DialogResult = DialogResult.OK;
+            DialogResult = DialogResult.OK;
 
             Close();
         }
@@ -200,6 +188,16 @@ namespace CarDealership.Forms
         }
 
         private void rtbFeatures_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbBodyType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtLocation_TextChanged(object sender, EventArgs e)
         {
 
         }

@@ -46,12 +46,20 @@
             label2 = new Label();
             button3 = new Button();
             tabMatching = new TabPage();
+            btnSupplierRequest = new Button();
+            btnTransportRequest = new Button();
             btnFindCars = new Button();
             button1 = new Button();
             cmbBuyers = new ComboBox();
             label3 = new Label();
             dgvMatches = new DataGridView();
             tabRequests = new TabPage();
+            btnDeleteTransportRequest = new Button();
+            label4 = new Label();
+            btnDeleteSupplierRequest = new Button();
+            label1 = new Label();
+            dgvTransportRequests = new DataGridView();
+            dgvSupplierRequests = new DataGridView();
             tabMain.SuspendLayout();
             tabCars.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvCars).BeginInit();
@@ -59,6 +67,9 @@
             ((System.ComponentModel.ISupportInitialize)dgvBuyers).BeginInit();
             tabMatching.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvMatches).BeginInit();
+            tabRequests.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvTransportRequests).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvSupplierRequests).BeginInit();
             SuspendLayout();
             // 
             // lblTitle
@@ -113,7 +124,7 @@
             dgvCars.Name = "dgvCars";
             dgvCars.ReadOnly = true;
             dgvCars.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvCars.Size = new Size(1555, 417);
+            dgvCars.Size = new Size(1555, 578);
             dgvCars.TabIndex = 5;
             dgvCars.CellContentClick += dgvCars_CellContentClick;
             // 
@@ -197,7 +208,7 @@
             dgvBuyers.Name = "dgvBuyers";
             dgvBuyers.ReadOnly = true;
             dgvBuyers.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvBuyers.Size = new Size(1555, 417);
+            dgvBuyers.Size = new Size(1555, 578);
             dgvBuyers.TabIndex = 10;
             dgvBuyers.CellContentClick += dgvBuyers_CellContentClick;
             // 
@@ -264,6 +275,8 @@
             // 
             // tabMatching
             // 
+            tabMatching.Controls.Add(btnSupplierRequest);
+            tabMatching.Controls.Add(btnTransportRequest);
             tabMatching.Controls.Add(btnFindCars);
             tabMatching.Controls.Add(button1);
             tabMatching.Controls.Add(cmbBuyers);
@@ -277,10 +290,32 @@
             tabMatching.Text = "Підбір авто";
             tabMatching.UseVisualStyleBackColor = true;
             // 
+            // btnSupplierRequest
+            // 
+            btnSupplierRequest.Font = new Font("Segoe UI", 12F);
+            btnSupplierRequest.Location = new Point(492, 8);
+            btnSupplierRequest.Name = "btnSupplierRequest";
+            btnSupplierRequest.Size = new Size(178, 31);
+            btnSupplierRequest.TabIndex = 17;
+            btnSupplierRequest.Text = "Заявка постачальнику";
+            btnSupplierRequest.UseVisualStyleBackColor = true;
+            btnSupplierRequest.Click += btnSupplierRequest_Click;
+            // 
+            // btnTransportRequest
+            // 
+            btnTransportRequest.Font = new Font("Segoe UI", 12F);
+            btnTransportRequest.Location = new Point(676, 8);
+            btnTransportRequest.Name = "btnTransportRequest";
+            btnTransportRequest.Size = new Size(178, 31);
+            btnTransportRequest.TabIndex = 16;
+            btnTransportRequest.Text = "Заявка перевізнику";
+            btnTransportRequest.UseVisualStyleBackColor = true;
+            btnTransportRequest.Click += btnTransportRequest_Click;
+            // 
             // btnFindCars
             // 
             btnFindCars.Font = new Font("Segoe UI", 12F);
-            btnFindCars.Location = new Point(349, 8);
+            btnFindCars.Location = new Point(349, 7);
             btnFindCars.Name = "btnFindCars";
             btnFindCars.Size = new Size(137, 31);
             btnFindCars.TabIndex = 15;
@@ -333,6 +368,12 @@
             // 
             // tabRequests
             // 
+            tabRequests.Controls.Add(btnDeleteTransportRequest);
+            tabRequests.Controls.Add(label4);
+            tabRequests.Controls.Add(btnDeleteSupplierRequest);
+            tabRequests.Controls.Add(label1);
+            tabRequests.Controls.Add(dgvTransportRequests);
+            tabRequests.Controls.Add(dgvSupplierRequests);
             tabRequests.Location = new Point(4, 30);
             tabRequests.Name = "tabRequests";
             tabRequests.Padding = new Padding(3);
@@ -340,6 +381,78 @@
             tabRequests.TabIndex = 3;
             tabRequests.Text = "Заявки";
             tabRequests.UseVisualStyleBackColor = true;
+            // 
+            // btnDeleteTransportRequest
+            // 
+            btnDeleteTransportRequest.Font = new Font("Segoe UI", 12F);
+            btnDeleteTransportRequest.Location = new Point(202, 322);
+            btnDeleteTransportRequest.Name = "btnDeleteTransportRequest";
+            btnDeleteTransportRequest.Size = new Size(106, 31);
+            btnDeleteTransportRequest.TabIndex = 17;
+            btnDeleteTransportRequest.Text = "Видалити";
+            btnDeleteTransportRequest.UseVisualStyleBackColor = true;
+            btnDeleteTransportRequest.Click += btnDeleteTransportRequest_Click;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            label4.Location = new Point(6, 327);
+            label4.Name = "label4";
+            label4.Size = new Size(171, 21);
+            label4.TabIndex = 16;
+            label4.Text = "Заявки перевізникам";
+            // 
+            // btnDeleteSupplierRequest
+            // 
+            btnDeleteSupplierRequest.Font = new Font("Segoe UI", 12F);
+            btnDeleteSupplierRequest.Location = new Point(202, 7);
+            btnDeleteSupplierRequest.Name = "btnDeleteSupplierRequest";
+            btnDeleteSupplierRequest.Size = new Size(106, 31);
+            btnDeleteSupplierRequest.TabIndex = 15;
+            btnDeleteSupplierRequest.Text = "Видалити";
+            btnDeleteSupplierRequest.UseVisualStyleBackColor = true;
+            btnDeleteSupplierRequest.Click += btnDeleteSupplierRequest_Click;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            label1.Location = new Point(6, 12);
+            label1.Name = "label1";
+            label1.Size = new Size(190, 21);
+            label1.TabIndex = 14;
+            label1.Text = "Заявки постачальникам";
+            // 
+            // dgvTransportRequests
+            // 
+            dgvTransportRequests.AllowUserToAddRows = false;
+            dgvTransportRequests.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvTransportRequests.BackgroundColor = SystemColors.Control;
+            dgvTransportRequests.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvTransportRequests.Location = new Point(6, 359);
+            dgvTransportRequests.MultiSelect = false;
+            dgvTransportRequests.Name = "dgvTransportRequests";
+            dgvTransportRequests.ReadOnly = true;
+            dgvTransportRequests.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvTransportRequests.Size = new Size(1555, 263);
+            dgvTransportRequests.TabIndex = 13;
+            dgvTransportRequests.CellContentClick += dgvTransportRequests_CellContentClick;
+            // 
+            // dgvSupplierRequests
+            // 
+            dgvSupplierRequests.AllowUserToAddRows = false;
+            dgvSupplierRequests.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvSupplierRequests.BackgroundColor = SystemColors.Control;
+            dgvSupplierRequests.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvSupplierRequests.Location = new Point(6, 44);
+            dgvSupplierRequests.MultiSelect = false;
+            dgvSupplierRequests.Name = "dgvSupplierRequests";
+            dgvSupplierRequests.ReadOnly = true;
+            dgvSupplierRequests.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvSupplierRequests.Size = new Size(1555, 263);
+            dgvSupplierRequests.TabIndex = 12;
+            dgvSupplierRequests.CellContentClick += dgvSupplierRequests_CellContentClick;
             // 
             // MainForm
             // 
@@ -360,6 +473,10 @@
             tabMatching.ResumeLayout(false);
             tabMatching.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvMatches).EndInit();
+            tabRequests.ResumeLayout(false);
+            tabRequests.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvTransportRequests).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvSupplierRequests).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -390,5 +507,13 @@
         private Button btnFindCars;
         private Button button1;
         private ComboBox cmbBuyers;
+        private Button btnSupplierRequest;
+        private Button btnTransportRequest;
+        private DataGridView dgvTransportRequests;
+        private DataGridView dgvSupplierRequests;
+        private Button btnDeleteTransportRequest;
+        private Label label4;
+        private Button btnDeleteSupplierRequest;
+        private Label label1;
     }
 }
