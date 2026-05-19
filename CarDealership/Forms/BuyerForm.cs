@@ -42,11 +42,9 @@ namespace CarDealership.Forms
             nudMinYear.Value = buyer.MinYear;
             nudMaxPrice.Value = buyer.MaxPrice;
 
-            rtbRequirements.Text =
-                buyer.Requirements;
+            rtbRequirements.Text = buyer.Requirements;
 
-            cmbCondition.SelectedItem =
-                buyer.RequiredCondition;
+            cmbCondition.SelectedItem =buyer.RequiredCondition;
         }
 
         private void label6_Click(object sender, EventArgs e)

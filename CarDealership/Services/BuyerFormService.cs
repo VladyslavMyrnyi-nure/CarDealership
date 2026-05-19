@@ -7,8 +7,7 @@ namespace CarDealership.Services
     {
         public void LoadComboBox(ComboBox cmbCondition)
         {
-            cmbCondition.DataSource =
-                Enum.GetValues(typeof(TechnicalCondition));
+            cmbCondition.DataSource = Enum.GetValues(typeof(TechnicalCondition));
         }
 
         public bool Validate(string fullName)

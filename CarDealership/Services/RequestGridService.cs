@@ -20,8 +20,7 @@ namespace CarDealership.Services
             }).ToList();
         }
 
-        public object GetTransportRequests(
-            List<Request> requests)
+        public object GetTransportRequests(List<Request> requests)
         {
             return requests.Select(x => new
             {

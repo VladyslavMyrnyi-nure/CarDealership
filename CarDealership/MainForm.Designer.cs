@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            lblTitle = new Label();
             tabMain = new TabControl();
             tabCars = new TabPage();
             dgvCars = new DataGridView();
@@ -60,6 +59,8 @@
             label1 = new Label();
             dgvTransportRequests = new DataGridView();
             dgvSupplierRequests = new DataGridView();
+            btnSaveJson = new Button();
+            btnLoadJson = new Button();
             tabMain.SuspendLayout();
             tabCars.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvCars).BeginInit();
@@ -72,16 +73,6 @@
             ((System.ComponentModel.ISupportInitialize)dgvSupplierRequests).BeginInit();
             SuspendLayout();
             // 
-            // lblTitle
-            // 
-            lblTitle.AutoSize = true;
-            lblTitle.Font = new Font("Segoe UI", 16.25F);
-            lblTitle.Location = new Point(12, 9);
-            lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(124, 30);
-            lblTitle.TabIndex = 0;
-            lblTitle.Text = "Автомобілі";
-            // 
             // tabMain
             // 
             tabMain.Controls.Add(tabCars);
@@ -89,7 +80,7 @@
             tabMain.Controls.Add(tabMatching);
             tabMain.Controls.Add(tabRequests);
             tabMain.Font = new Font("Segoe UI", 12F);
-            tabMain.Location = new Point(12, 42);
+            tabMain.Location = new Point(12, 52);
             tabMain.Name = "tabMain";
             tabMain.SelectedIndex = 0;
             tabMain.Size = new Size(1575, 662);
@@ -454,13 +445,36 @@
             dgvSupplierRequests.TabIndex = 12;
             dgvSupplierRequests.CellContentClick += dgvSupplierRequests_CellContentClick;
             // 
+            // btnSaveJson
+            // 
+            btnSaveJson.Font = new Font("Segoe UI", 12F);
+            btnSaveJson.Location = new Point(16, 5);
+            btnSaveJson.Name = "btnSaveJson";
+            btnSaveJson.Size = new Size(132, 41);
+            btnSaveJson.TabIndex = 6;
+            btnSaveJson.Text = "Зберегти JSON";
+            btnSaveJson.UseVisualStyleBackColor = true;
+            btnSaveJson.Click += btnSaveJson_Click;
+            // 
+            // btnLoadJson
+            // 
+            btnLoadJson.Font = new Font("Segoe UI", 12F);
+            btnLoadJson.Location = new Point(154, 5);
+            btnLoadJson.Name = "btnLoadJson";
+            btnLoadJson.Size = new Size(152, 41);
+            btnLoadJson.TabIndex = 7;
+            btnLoadJson.Text = "Завантажити файл";
+            btnLoadJson.UseVisualStyleBackColor = true;
+            btnLoadJson.Click += btnLoadJson_Click;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1599, 716);
+            ClientSize = new Size(1599, 714);
+            Controls.Add(btnLoadJson);
+            Controls.Add(btnSaveJson);
             Controls.Add(tabMain);
-            Controls.Add(lblTitle);
             Name = "MainForm";
             Text = "Form1";
             tabMain.ResumeLayout(false);
@@ -478,12 +492,9 @@
             ((System.ComponentModel.ISupportInitialize)dgvTransportRequests).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvSupplierRequests).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
-
-        private Label lblTitle;
         private TabControl tabMain;
         private TabPage tabCars;
         private TabPage tabBuyers;
@@ -515,5 +526,7 @@
         private Label label4;
         private Button btnDeleteSupplierRequest;
         private Label label1;
+        private Button btnSaveJson;
+        private Button btnLoadJson;
     }
 }

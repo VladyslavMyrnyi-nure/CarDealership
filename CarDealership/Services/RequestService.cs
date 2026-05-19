@@ -19,9 +19,7 @@ namespace CarDealership.Services
 
         public void DeleteRequest(Guid id)
         {
-            Request? request =
-                Requests.FirstOrDefault(
-                    x => x.Id == id);
+            Request? request = Requests.FirstOrDefault(x => x.Id == id);
 
             if (request != null)
                 Requests.Remove(request);

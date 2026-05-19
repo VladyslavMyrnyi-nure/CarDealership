@@ -29,7 +29,7 @@ namespace CarDealership.Models
         // Конструктор за замовчуванням
         public Car()
         {
-                Id = Guid.NewGuid();
+            Id = Guid.NewGuid();
 
             Brand = string.Empty;
             Model = string.Empty;

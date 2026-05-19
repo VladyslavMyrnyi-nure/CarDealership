@@ -1,6 +1,7 @@
 using CarDealership.Forms;
 using CarDealership.Models;
 using CarDealership.Services;
+using System.Text.Json;
 
 
 namespace CarDealership
@@ -31,6 +32,12 @@ namespace CarDealership
         private RequestGridService requestGridService;
         private RequestSelectionService requestSelectionService;
 
+        // Сервіс для роботи з файлами
+        private FileService fileService;
+        private const string DataFile = @"..\..\..\Data\autosalon_backup.json";
+
+        private readonly string projectDataPath = @"..\..\..\Data";
+
         // Конструктор форми
         public MainForm()
         {
@@ -60,9 +67,10 @@ namespace CarDealership
             requestGridService = new RequestGridService();
             requestSelectionService = new RequestSelectionService();
 
-            LoadCars();
-            LoadBuyers();
-            LoadBuyerCombo();
+            // Ініціалізація сервісу для роботи з файлами
+            fileService = new FileService();
+
+            LoadData();
         }
 
         // Метод для завантаження автомобілів у таблицю
@@ -105,7 +113,6 @@ namespace CarDealership
 
             dgvBuyers.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
             dgvBuyers.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            dgvBuyers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
         private void LoadBuyerCombo()
@@ -115,6 +122,7 @@ namespace CarDealership
             cmbBuyers.DisplayMember = "FullName";
         }
 
+        // Метод для завантаження заявок у таблиці
         private void LoadRequests()
         {
             dgvSupplierRequests.DataSource = null;
@@ -136,6 +144,49 @@ namespace CarDealership
             dgvTransportRequests.Columns["Куди"].FillWeight = 140;
         }
 
+        // Метод для збереження даних у файли при закритті форми
+        private void SaveData()
+        {
+            Directory.CreateDirectory(@"..\..\..\Data");
+
+            AppData data = new AppData
+                {
+                    Cars =carService.Cars,
+                    Buyers = buyerService.Buyers,
+                    Requests = requestService.Requests
+                };
+
+            string json = JsonSerializer.Serialize(data, new JsonSerializerOptions
+                    {
+                        WriteIndented = true
+                    });
+
+            File.WriteAllText(DataFile,json);
+        }
+
+        // Метод для завантаження даних з файлів при запуску форми
+        private void LoadData()
+        {
+            if (!File.Exists(DataFile))
+                return;
+
+            string json =File.ReadAllText(DataFile);
+
+            AppData? data = JsonSerializer.Deserialize<AppData>(json);
+
+            if (data == null)
+                return;
+
+            carService.Cars = data.Cars;
+            buyerService.Buyers = data.Buyers;
+            requestService.Requests = data.Requests;
+
+            LoadCars();
+            LoadBuyers();
+            LoadRequests();
+            LoadBuyerCombo();
+        }
+
         private void tabCars_Click(object sender, EventArgs e)
         {
 
@@ -149,6 +200,7 @@ namespace CarDealership
             if (form.ShowDialog() == DialogResult.OK)
             {
                 carService.AddCar(form.NewCar);
+                SaveData();
 
                 LoadCars();
             }
@@ -177,6 +229,7 @@ namespace CarDealership
             {
                 carService.UpdateCar(id, form.NewCar!);
 
+                SaveData();
                 LoadCars();
             }
         }
@@ -193,14 +246,13 @@ namespace CarDealership
                 return;
             }
 
-            DialogResult result =
-            MessageBox.Show("Видалити авто?", "Підтвердження", MessageBoxButtons.YesNo);
+            DialogResult result = MessageBox.Show("Видалити авто?", "Підтвердження", MessageBoxButtons.YesNo);
 
-            if (result != DialogResult.Yes)
-                return;
+            if (result != DialogResult.Yes) return;
 
             carService.DeleteCar(id);
 
+            SaveData();
             LoadCars();
         }
 
@@ -230,6 +282,7 @@ namespace CarDealership
             {
                 buyerService.AddBuyer(form.NewBuyer!);
 
+                SaveData();
                 LoadBuyers();
             }
         }
@@ -250,6 +303,7 @@ namespace CarDealership
             {
                 buyerService.UpdateBuyer(id, form.NewBuyer!);
 
+                SaveData();
                 LoadBuyers();
             }
 
@@ -276,6 +330,7 @@ namespace CarDealership
 
             buyerService.DeleteBuyer(id);
 
+            SaveData();
             LoadBuyers();
         }
 
@@ -292,7 +347,15 @@ namespace CarDealership
         // Обробник події для кнопки "Знайти автомобілі для покупця"
         private void btnFindCars_Click(object sender, EventArgs e)
         {
-            Buyer buyer = (Buyer)cmbBuyers.SelectedItem;
+            Buyer? buyer = cmbBuyers.SelectedItem as Buyer;
+
+            if (buyer == null)
+            {
+                MessageBox.Show(
+                    "Оберіть покупця");
+
+                return;
+            }
 
             var cars = matchingService.FindCars(buyer, carService.Cars);
 
@@ -321,23 +384,24 @@ namespace CarDealership
             if (car == null) return;
 
             Request request = new Request
-                {
-                    Number = $"SUP-{DateTime.Now:yyyyMMdd-HHmmss}",
-                    Type = "Постачальник",
-                    BuyerName = buyer.FullName,
-                    CarInfo =
+            {
+                Number = $"SUP-{DateTime.Now:yyyyMMdd-HHmmss}",
+                Type = "Постачальник",
+                BuyerName = buyer.FullName,
+                CarInfo =
                         $"{car.Brand} {car.Model}, " +
                         $"{car.Year} р., " +
                         $"{car.EngineVolume} л, " +
                         $"{car.HorsePower} к.с., " +
                         $"{car.FuelType}, " +
                         $"{car.Transmission}",
-                    CarPrice = car.Price,
-                    Comment = "Підтвердити наявність автомобіля"
-                };
+                CarPrice = car.Price,
+                Comment = "Підтвердити наявність автомобіля"
+            };
 
             requestService.AddRequest(request);
 
+            SaveData();
             LoadRequests();
 
             MessageBox.Show("Заявку створено");
@@ -352,7 +416,7 @@ namespace CarDealership
                 return;
             }
 
-            Buyer buyer =(Buyer)cmbBuyers.SelectedItem;
+            Buyer buyer = (Buyer)cmbBuyers.SelectedItem;
 
             Guid carId = (Guid)dgvMatches.SelectedRows[0].Cells["Id"].Value;
 
@@ -361,27 +425,24 @@ namespace CarDealership
             if (car == null) return;
 
             Request request = new Request
-                {
-                    Number = $"CAR-{DateTime.Now:yyyyMMdd-HHmmss}",
-
-                    Type = "Перевізник",
-
-                    BuyerName = buyer.FullName,
-
-                    CarInfo =
+            {
+                Number = $"CAR-{DateTime.Now:yyyyMMdd-HHmmss}",
+                Type = "Перевізник",
+                BuyerName = buyer.FullName,
+                CarInfo =
                         $"{car.Brand} {car.Model}, " +
                         $"{car.Year} р., " +
                         $"{car.EngineVolume} л",
 
-                    From = car.Location,
+                From = car.Location,
+                To = "Автосалон або адреса покупця",
 
-                    To = "Автосалон або адреса покупця",
-
-                    DeliveryDate =DateTime.Now.AddDays(3)
-                };
+                DeliveryDate = DateTime.Now.AddDays(3)
+            };
 
             requestService.AddRequest(request);
 
+            SaveData();
             LoadRequests();
 
             MessageBox.Show("Заявку створено");
@@ -405,6 +466,7 @@ namespace CarDealership
 
             requestService.DeleteRequest(id);
 
+            SaveData();
             LoadRequests();
         }
 
@@ -413,6 +475,7 @@ namespace CarDealership
 
         }
 
+        // Обробник події для кнопки "Видалити заявку перевізнику"
         private void btnDeleteTransportRequest_Click(object sender, EventArgs e)
         {
             Guid id = requestSelectionService.GetSelectedId(dgvTransportRequests);
@@ -429,12 +492,38 @@ namespace CarDealership
 
             requestService.DeleteRequest(id);
 
+            SaveData();
             LoadRequests();
         }
 
         private void dgvTransportRequests_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        // Обробник події для кнопки "Зберегти в JSON"
+        private void btnSaveJson_Click(object sender, EventArgs e)
+        {
+            SaveData();
+
+            MessageBox.Show("JSON збережено");
+        }
+
+        // Обробник події для кнопки "Завантажити з JSON"
+        private void btnLoadJson_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+
+            dialog.Filter = "JSON files|*.json";
+            dialog.InitialDirectory = Path.GetFullPath(@"..\..\..\Data");
+
+            if (dialog.ShowDialog() != DialogResult.OK) return;
+
+            File.Copy(dialog.FileName, DataFile, true);
+
+            LoadData();
+
+            MessageBox.Show("Файл завантажено");
         }
     }
 }

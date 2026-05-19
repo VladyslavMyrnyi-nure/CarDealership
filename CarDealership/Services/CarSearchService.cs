@@ -12,11 +12,17 @@ namespace CarDealership.Services
 
             searchText = searchText.ToLower().Trim();
 
+            string engineText = searchText.Replace(",", ".");
+
             return cars.Where(car =>
                 car.Brand.ToLower().Contains(searchText) ||
                 car.Model.ToLower().Contains(searchText) ||
                 car.Country.ToLower().Contains(searchText) ||
+                car.FuelType.ToString().ToLower().Contains(searchText) ||
+                car.Transmission.ToString().ToLower().Contains(searchText) ||
+                car.Condition.ToString().ToLower().Contains(searchText) ||
                 car.BodyType.ToString().ToLower().Contains(searchText) ||
+                car.Year.ToString().Contains(searchText) ||
                 car.EngineVolume.ToString().Replace(",", ".").Contains(searchText.Replace(",", "."))).ToList();
         }
     }

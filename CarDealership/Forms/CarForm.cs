@@ -64,8 +64,7 @@ namespace CarDealership.Forms
                 Year = (int)nudYear.Value,
                 Price = nudPrice.Value,
                 Country = txtCountry.Text,
-                Condition =
-                    (TechnicalCondition)cmbCondition.SelectedItem
+                Condition = (TechnicalCondition)cmbCondition.SelectedItem
             };
 
             DialogResult = DialogResult.OK;
@@ -110,15 +109,11 @@ namespace CarDealership.Forms
 
         private void btnSave_Click_1(object sender, EventArgs e)
         {
-            bool valid =
-                carFormService.ValidateData(
-                    txtBrand.Text,
-                    txtModel.Text);
+            bool valid = carFormService.ValidateData(txtBrand.Text,txtModel.Text);
 
             if (!valid)
             {
-                MessageBox.Show(
-                    "Заповніть марку та модель");
+                MessageBox.Show("Заповніть марку та модель");
 
                 return;
             }
