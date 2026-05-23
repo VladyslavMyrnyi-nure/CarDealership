@@ -107,9 +107,11 @@ namespace CarDealership
 
             dgvBuyers.Columns["Id"].Visible = false;
             dgvBuyers.Columns["Вимоги"].FillWeight = 220;
-            dgvBuyers.Columns["Покупець"].FillWeight = 110;
-            dgvBuyers.Columns["Телефон"].FillWeight = 110;
+            dgvBuyers.Columns["Покупець"].FillWeight = 130;
+            dgvBuyers.Columns["Телефон"].FillWeight = 120;
+            dgvBuyers.Columns["Email"].FillWeight = 180;
             dgvBuyers.Columns["Марка"].FillWeight = 80;
+            dgvBuyers.Columns["МінРік"].FillWeight = 60;
 
             dgvBuyers.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
             dgvBuyers.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
@@ -274,16 +276,19 @@ namespace CarDealership
         // Обробник події для кнопки "Додати покупця"
         private void btnAddBuyer_Click(object sender, EventArgs e)
         {
-            BuyerForm form =
-            new BuyerForm();
+            BuyerForm form = new BuyerForm();
 
-            if (form.ShowDialog()
-                == DialogResult.OK)
+            if (form.ShowDialog() == DialogResult.OK)
             {
                 buyerService.AddBuyer(form.NewBuyer!);
 
-                SaveData();
                 LoadBuyers();
+
+                cmbBuyers.DataSource = null;
+                cmbBuyers.DataSource = buyerService.Buyers;
+                cmbBuyers.DisplayMember = "FullName";
+
+                SaveData();
             }
         }
 
@@ -292,23 +297,24 @@ namespace CarDealership
         {
             Guid id = buyerSelectionService.GetSelectedId(dgvBuyers);
 
-            Buyer? buyer = buyerService.Buyers.FirstOrDefault(x => x.Id == id);
+            Buyer? buyer = buyerService.Buyers.FirstOrDefault( x => x.Id == id);
 
-            if (buyer == null)
-                return;
+            if (buyer == null) return;
 
             BuyerForm form = new BuyerForm(buyer);
 
-            if (form.ShowDialog() == DialogResult.OK)
+            if (form.ShowDialog()== DialogResult.OK)
             {
-                buyerService.UpdateBuyer(id, form.NewBuyer!);
+                buyerService.UpdateBuyer(id,form.NewBuyer!);
+
+                LoadBuyers();
+
+                cmbBuyers.DataSource = null;
+                cmbBuyers.DataSource = buyerService.Buyers;
+                cmbBuyers.DisplayMember = "FullName";
 
                 SaveData();
-                LoadBuyers();
             }
-
-
-
         }
 
         // Обробник події для кнопки "Видалити покупця"
@@ -330,8 +336,9 @@ namespace CarDealership
 
             buyerService.DeleteBuyer(id);
 
-            SaveData();
+            LoadBuyerCombo();
             LoadBuyers();
+            SaveData();
         }
 
         private void dgvBuyers_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -351,17 +358,22 @@ namespace CarDealership
 
             if (buyer == null)
             {
-                MessageBox.Show(
-                    "Оберіть покупця");
+                MessageBox.Show("Оберіть покупця");
 
                 return;
             }
 
-            var cars = matchingService.FindCars(buyer, carService.Cars);
+            List<Car> cars =
+                matchingService.FindCars(buyer, carService.Cars);
 
             dgvMatches.DataSource = null;
+
             dgvMatches.DataSource = matchingGridService.GetCars(cars);
-            dgvMatches.Columns["Id"].Visible = false;
+
+            if (dgvMatches.Columns["Id"]!= null)
+            {
+                dgvMatches.Columns["Id"].Visible = false;
+            }
         }
 
 

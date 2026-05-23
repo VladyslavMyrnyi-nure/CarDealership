@@ -2,6 +2,7 @@
 
 namespace CarDealership.Models
 {
+
     public class Buyer
     {
         public Guid Id { get; set; }

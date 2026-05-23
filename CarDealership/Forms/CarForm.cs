@@ -7,6 +7,7 @@ namespace CarDealership.Forms
     public partial class CarForm : Form
     {
         public Car NewCar { get; private set; }
+        private Guid carId;
 
         private CarFormService carFormService;
 
@@ -30,8 +31,10 @@ namespace CarDealership.Forms
             FillFields(car);
         }
 
+        
         private void FillFields(Car car)
         {
+            carId = car.Id;
             txtBrand.Text = car.Brand;
             txtModel.Text = car.Model;
             nudYear.Value = car.Year;
@@ -53,23 +56,6 @@ namespace CarDealership.Forms
         {
             cmbCondition.DataSource =
                 Enum.GetValues(typeof(TechnicalCondition));
-        }
-
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-            NewCar = new Car
-            {
-                Brand = txtBrand.Text,
-                Model = txtModel.Text,
-                Year = (int)nudYear.Value,
-                Price = nudPrice.Value,
-                Country = txtCountry.Text,
-                Condition = (TechnicalCondition)cmbCondition.SelectedItem
-            };
-
-            DialogResult = DialogResult.OK;
-
-            Close();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

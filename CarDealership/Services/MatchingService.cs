@@ -4,15 +4,19 @@ namespace CarDealership.Services
 {
     public class MatchingService
     {
-        public List<Car> FindCars(Buyer buyer, List<Car> cars)
+        public List<Car> FindCars(Buyer buyer,List<Car> cars)
         {
-            if (buyer == null)
-                return new List<Car>();
+            if (buyer == null)return new List<Car>();
 
-            return cars.Where(car => car.Price <= buyer.MaxPrice &&
-                car.Year >= buyer.MinYear &&
-                car.Condition >= buyer.RequiredCondition &&
-                (string.IsNullOrWhiteSpace(buyer.DesiredBrand) || car.Brand.ToLower().Contains(buyer.DesiredBrand.ToLower()))).ToList();
+            return cars.Where(car =>
+                car.Price <= buyer.MaxPrice
+                &&
+                car.Year >=buyer.MinYear
+                &&
+                (string.IsNullOrWhiteSpace(buyer.DesiredBrand) ||
+                car.Brand.Trim().Equals(buyer.DesiredBrand.Trim(), StringComparison.OrdinalIgnoreCase))
+
+            ).ToList();
         }
     }
 }

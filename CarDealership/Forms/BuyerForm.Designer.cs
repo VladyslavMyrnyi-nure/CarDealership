@@ -233,7 +233,6 @@
             nudMaxPrice.TabIndex = 31;
             nudMaxPrice.ThousandsSeparator = true;
             nudMaxPrice.Value = new decimal(new int[] { 10000, 0, 0, 0 });
-
             // 
             // BuyerForm
             // 
@@ -260,7 +259,7 @@
             Controls.Add(label1);
             Name = "BuyerForm";
             StartPosition = FormStartPosition.CenterParent;
-            Text = "BuyerForm";
+            Text = "Додавання покупця";
             ((System.ComponentModel.ISupportInitialize)nudMinYear).EndInit();
             ((System.ComponentModel.ISupportInitialize)nudMaxPrice).EndInit();
             ResumeLayout(false);

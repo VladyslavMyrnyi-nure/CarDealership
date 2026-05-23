@@ -8,6 +8,7 @@ namespace CarDealership.Services
     {
         public List<Car> Cars { get; set; }
 
+        // Конструктор, який ініціалізує список автомобілів
         public CarService()
         {
             Cars = new List<Car>();
@@ -48,6 +49,8 @@ namespace CarDealership.Services
             oldCar.Condition = updatedCar.Condition;
             oldCar.IsNew = updatedCar.IsNew;
             oldCar.Price = updatedCar.Price;
+            oldCar.BodyType = updatedCar.BodyType;
+            oldCar.Location = updatedCar.Location;
         }
     }
 }

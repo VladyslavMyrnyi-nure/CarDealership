@@ -1,5 +1,6 @@
 ﻿namespace CarDealership.Models
 {
+
     public class AppData
     {
         public List<Car> Cars { get; set; }

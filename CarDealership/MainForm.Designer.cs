@@ -476,7 +476,7 @@
             Controls.Add(btnSaveJson);
             Controls.Add(tabMain);
             Name = "MainForm";
-            Text = "Form1";
+            Text = "Автосалон";
             tabMain.ResumeLayout(false);
             tabCars.ResumeLayout(false);
             tabCars.PerformLayout();
