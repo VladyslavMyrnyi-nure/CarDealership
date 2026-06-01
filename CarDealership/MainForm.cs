@@ -363,11 +363,9 @@ namespace CarDealership
                 return;
             }
 
-            List<Car> cars =
-                matchingService.FindCars(buyer, carService.Cars);
+            List<Car> cars = matchingService.FindCars(buyer, carService.Cars);
 
             dgvMatches.DataSource = null;
-
             dgvMatches.DataSource = matchingGridService.GetCars(cars);
 
             if (dgvMatches.Columns["Id"]!= null)

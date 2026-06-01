@@ -5,25 +5,28 @@ namespace CarDealership.Services
     // Сервіс пошуку автомобілів за текстом
     public class CarSearchService
     {
-        public List<Car> SearchCars(List<Car> cars, string searchText)
+        public List<Car> SearchCars(
+    List<Car> cars,
+    string searchText)
         {
             if (string.IsNullOrWhiteSpace(searchText))
                 return cars;
 
-            searchText = searchText.ToLower().Trim();
+            string[] terms = searchText.ToLower().Split(',', StringSplitOptions.RemoveEmptyEntries).Select(x => x.Trim()).ToArray();
 
-            string engineText = searchText.Replace(",", ".");
-
-            return cars.Where(car =>
-                car.Brand.ToLower().Contains(searchText) ||
-                car.Model.ToLower().Contains(searchText) ||
-                car.Country.ToLower().Contains(searchText) ||
-                car.FuelType.ToString().ToLower().Contains(searchText) ||
-                car.Transmission.ToString().ToLower().Contains(searchText) ||
-                car.Condition.ToString().ToLower().Contains(searchText) ||
-                car.BodyType.ToString().ToLower().Contains(searchText) ||
-                car.Year.ToString().Contains(searchText) ||
-                car.EngineVolume.ToString().Replace(",", ".").Contains(searchText.Replace(",", "."))).ToList();
+            return cars.Where(car => terms.All(term =>
+                    car.Brand.ToLower().Contains(term) ||
+                    car.Model.ToLower().Contains(term) ||
+                    car.Country.ToLower().Contains(term) ||
+                    car.FuelType.ToString().ToLower().Contains(term) ||
+                    car.Transmission.ToString().ToLower().Contains(term) ||
+                    car.Condition.ToString().ToLower().Contains(term) ||
+                    car.BodyType.ToString().ToLower().Contains(term) ||
+                    car.Location.ToLower().Contains(term) ||
+                    car.Year.ToString().Contains(term) ||
+                    car.EngineVolume.ToString().Replace(",", ".").Contains(term.Replace(",", "."))
+                )
+            ).ToList();
         }
     }
 }

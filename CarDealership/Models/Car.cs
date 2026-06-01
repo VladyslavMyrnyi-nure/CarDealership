@@ -38,6 +38,7 @@ namespace CarDealership.Models
             Location = "";
         }
 
+        
         public override string ToString()
         {
             return $"{Brand} {Model} ({Year})";                
